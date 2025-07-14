@@ -1,13 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { BiChevronLeft, BiChevronRight, BiSearch } from "react-icons/bi";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Book from "./Book";
+import NotFound from "./NotFound";
 
 function BrowseBooks() {
   const books = useSelector((state) => state.books.books);
   const categories = useSelector((state) => state.books.categories);
   const { category } = useParams();
+
+  const catFound = category && categories.find(cat=> cat.name === category);
+  if(!catFound && category!=="All" && category!==undefined ){
+    return <NotFound error="Category" />
+  }
+
+  const location = useLocation();
   const [catBooks, setCatBooks] = useState(
     category
       ? category !== "All"
@@ -27,7 +35,7 @@ function BrowseBooks() {
   const scroll = (direction) => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -100 : 100, // adjust scroll amount as needed
+        left: direction === "left" ? -100 : 100,
         behavior: "smooth",
       });
     }
@@ -75,7 +83,7 @@ function BrowseBooks() {
           <Link to={`/books/All`} key={`catindex}`}>
             <li
               className={`${
-                category === "All"
+                category === "All" || location.pathname ==="/books" || location.pathname ==="/books/"
                   ? "bg-gray-200 text-gray-800"
                   : "bg-gray-800 hover:bg-gray-700 text-gray-200"
               }  py-2 px-4 rounded-md`}>

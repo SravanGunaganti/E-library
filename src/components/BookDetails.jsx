@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BsStarFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import NotFound from "./NotFound";
 
 function BookDetails() {
   const { id } = useParams();
@@ -20,9 +21,19 @@ function BookDetails() {
 
   if (!book) {
     return (
-      <div className="text-center text-gray-400 mt-8 text-xl">
-        Book not found.
-      </div>
+      <NotFound error="Book" />
+    //   <div className=" -mt-[80px] relative min-h-screen flex justify-center items-center text-gray-400 text-xl">
+    //   <div className="bg-gray-800 rounded-lg shadow-xl p-8 max-w-md text-center">
+    //     <h1 className="text-5xl font-extrabold text-red-400 mb-4">OOPS!</h1>
+    //     <p className="text-xl text-gray-400 mb-4">Book Not Found</p>
+    //     <button
+    //       onClick={() => (window.location.href = "/")}
+    //       className=" text-sm px-6 py-3 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-600  hover:text-gray-100 transition duration-300 ease-in-out">
+    //       Back To Home
+    //     </button>
+    //   </div>
+    // </div>
+
     );
   }
   return (
@@ -49,7 +60,7 @@ function BookDetails() {
           <p className="font-outfit text-gray-400 text-sm">
             <span className="text-white mr-1">Category:</span> {book.category}
           </p>
-          <p className="font-outfit text-gray-400 text-sm break-words">
+          <p className="font-outfit text-gray-400 text-sm break-all">
             <span className="text-gray-100">Description: </span> <br></br>
             {book.description}
           </p>

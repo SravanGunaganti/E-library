@@ -12,6 +12,7 @@ import AddBook from "./components/AddBook.jsx";
 import ErrorComponent from "./components/ErrorComponent.jsx";
 
 import "./index.css";
+import NotFound from "./components/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,6 @@ const router = createBrowserRouter([
       { path: "books/:category", element: <BrowseBooks /> },
       { path: "books/details/:id", element: <BookDetails /> },
       { path: "add-book", element: <AddBook /> },
-      { path: "*", element: <ErrorComponent /> },
     ],
   },
 ]);
