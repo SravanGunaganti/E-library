@@ -23,7 +23,9 @@ function Header() {
               className="w-[120px] xs:w-[170px] contrast-50 invert-100"
             />
           </Link>
-          <button className="md:hidden text-lg xs:text-2xl" onClick={() => setShowMenu(!showMenu)}>
+          <button
+            className="md:hidden text-lg xs:text-2xl"
+            onClick={() => setShowMenu(!showMenu)}>
             {showMenu ? <IoCloseCircle /> : <FaBarsStaggered />}
           </button>
         </div>
@@ -33,7 +35,7 @@ function Header() {
             className={`${
               location.pathname === "/"
                 ? "text-gray-800 bg-gray-200"
-                : "hover:text-white hover:bg-gray-700"
+                : "hover:text-white bg-gray-800 hover:bg-gray-700"
             } py-2 px-4 rounded-md transition`}>
             Home
           </Link>
@@ -42,7 +44,7 @@ function Header() {
             className={`${
               location.pathname === "/books"
                 ? "text-gray-800 bg-gray-200"
-                : "hover:text-white hover:bg-gray-700"
+                : "hover:text-white bg-gray-800 hover:bg-gray-700"
             } py-2 px-4 rounded-md transition`}>
             Browse Books
           </Link>
@@ -51,12 +53,12 @@ function Header() {
             className={`${
               location.pathname === "/add-book"
                 ? "text-gray-800 bg-gray-200"
-                : "hover:text-white hover:bg-gray-700"
+                : "hover:text-white bg-gray-800 hover:bg-gray-700"
             } py-2 px-4 rounded-md transition`}>
             Add Book
           </Link>
         </div>
-        {(
+        {
           <div
             className={`transition-transform duration-200 ${
               showMenu ? "translate-x-0" : "-translate-x-full"
@@ -66,7 +68,7 @@ function Header() {
               className={`${
                 location.pathname === "/"
                   ? "text-gray-800 bg-gray-200"
-                  : "hover:text-white hover:bg-gray-700"
+                  : "hover:text-white bg-gray-800 hover:bg-gray-700"
               } block w-fit py-2 px-4 rounded-md transition`}>
               Home
             </Link>
@@ -75,7 +77,7 @@ function Header() {
               className={`${
                 location.pathname === "/books"
                   ? "text-gray-800 bg-gray-200"
-                  : "hover:text-white hover:bg-gray-700"
+                  : "hover:text-white bg-gray-800 hover:bg-gray-700"
               } py-2 px-4 rounded-md transition`}>
               Browse Books
             </Link>
@@ -84,12 +86,12 @@ function Header() {
               className={`${
                 location.pathname === "/add-book"
                   ? "text-gray-800 bg-gray-200"
-                  : "hover:text-white hover:bg-gray-700"
+                  : "hover:text-white bg-gray-800 hover:bg-gray-700"
               } py-2 px-4 rounded-md transition`}>
               Add Book
             </Link>
           </div>
-        )}
+        }
       </nav>
     </header>
   );
