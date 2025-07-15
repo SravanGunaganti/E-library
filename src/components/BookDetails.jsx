@@ -20,21 +20,7 @@ function BookDetails() {
   }, [id]);
 
   if (!book) {
-    return (
-      <NotFound error="Book" />
-    //   <div className=" -mt-[80px] relative min-h-screen flex justify-center items-center text-gray-400 text-xl">
-    //   <div className="bg-gray-800 rounded-lg shadow-xl p-8 max-w-md text-center">
-    //     <h1 className="text-5xl font-extrabold text-red-400 mb-4">OOPS!</h1>
-    //     <p className="text-xl text-gray-400 mb-4">Book Not Found</p>
-    //     <button
-    //       onClick={() => (window.location.href = "/")}
-    //       className=" text-sm px-6 py-3 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-600  hover:text-gray-100 transition duration-300 ease-in-out">
-    //       Back To Home
-    //     </button>
-    //   </div>
-    // </div>
-
-    );
+    return <NotFound error="Book" />;
   }
   return (
     <div className="flex justify-center p-4 text-gray-400 max-w-full">
